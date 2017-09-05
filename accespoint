@@ -1,0 +1,14 @@
+@echo off
+echo Hola %username%
+echo %time%
+netsh wlan set hostednetwork mode=disallow
+netsh wlan stop hostednetwork
+netsh wlan show drivers
+echo Creando una Red Huespued
+netsh wlan set hostednetwork mode=allow ssid=NOMBREDELARED key=PASSWORD
+echo Red creada ...
+echo ... inicializando la red.
+netsh wlan start hostednetwork
+echo Red inicializada y lista para utilizar!
+pause
+exit
